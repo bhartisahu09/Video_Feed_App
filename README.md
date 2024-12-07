@@ -1,7 +1,5 @@
 # Video Feed App
 
-A new Flutter project.
-
 A Flutter application that displays an video feed with the following features:
 - **Video Playback:** Play/pause videos with a tap.
 - **Like System:** Like videos and display like counts.
@@ -19,7 +17,10 @@ A Flutter application that displays an video feed with the following features:
    - Double-tap or press the heart icon to like a video.
    - Display total likes for each video.
 
-3. **Video Progress Bar:**
+3. **Pull-to-Refresh:**
+   - Pull down the feed to refresh and shuffle the video order.
+
+4. **Video Progress Bar:**
    - Display the current playback position.
    - Use the slider to seek within the video.
 
@@ -34,6 +35,6 @@ A Flutter application that displays an video feed with the following features:
 
 ### Installation
 
-  Clone the repository:
+1. Clone the repository:
    ```bash
-   git clone
+   git clone https://github.com/bhartisahu09/Video_Feed_App.git

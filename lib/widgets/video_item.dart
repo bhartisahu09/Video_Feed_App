@@ -6,12 +6,16 @@ class VideoItem extends StatefulWidget {
   final int likeCount;
   final bool isLiked;
   final Function(bool) onLikeToggle;
+  final bool isPlaying;
+  final Function() onPlay;
 
   VideoItem({
     required this.videoAsset,
     required this.likeCount,
     required this.isLiked,
     required this.onLikeToggle,
+    required this.isPlaying,
+    required this.onPlay,
   });
 
   @override
@@ -88,34 +92,35 @@ class _VideoItemState extends State<VideoItem> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.isPlaying) {
+      _controller.play();
+    } else {
+      _controller.pause();
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        AspectRatio(
-          aspectRatio: _controller.value.aspectRatio,
-          child: Stack(
-            children: [
-              if (isVideoInitialized)
-                VideoPlayer(_controller)
-              else
-                Center(child: CircularProgressIndicator()),
-              Positioned.fill(
-                child: GestureDetector(
-                  onTap: _playPauseVideo,
-                  child: Center(
+        GestureDetector(
+          onTap: widget.onPlay,
+          child: AspectRatio(
+            aspectRatio: _controller.value.aspectRatio,
+            child: Stack(
+              children: [
+                if (isVideoInitialized)
+                  VideoPlayer(_controller)
+                else
+                  Center(child: CircularProgressIndicator()),
+                if (!widget.isPlaying)
+                  Center(
                     child: Icon(
-                      isVideoEnded
-                          ? Icons.replay
-                          : (_controller.value.isPlaying
-                              ? Icons.pause
-                              : Icons.play_arrow),
-                      size: 80,
-                      color: Colors.black.withOpacity(0.7),
+                      Icons.play_circle_outline,
+                      size: 64,
+                      color: Colors.white.withOpacity(0.7),
                     ),
                   ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         Padding(
