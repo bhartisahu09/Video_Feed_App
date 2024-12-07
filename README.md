@@ -36,4 +36,4 @@ A Flutter application that displays an video feed with the following features:
 
   Clone the repository:
    ```bash
-   git clone
+   git clone https://github.com/bhartisahu09/Video_Feed_App.git
