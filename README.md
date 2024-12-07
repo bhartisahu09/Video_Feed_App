@@ -3,7 +3,6 @@
 A Flutter application that displays an video feed with the following features:
 - **Video Playback:** Play/pause videos with a tap.
 - **Like System:** Like videos and display like counts.
-- **Pull-to-Refresh:** Refresh the video feed to display videos in a randomized order.
 - **Progress Bar:** Display the video's playback progress with a slider to seek.
 - **Replay Option:** Replay the video when it ends.
 
